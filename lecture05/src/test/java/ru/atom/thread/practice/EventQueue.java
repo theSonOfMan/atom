@@ -13,4 +13,13 @@ public class EventQueue {
     public static BlockingQueue<Event> getInstance() {
         return instance;
     }
+
+    public static long getNumberOfEvents(Event.EventType type) {
+        long matchingEvents = 0;
+        for (Event event : instance) {
+            if (event.getEventType() == type)
+                matchingEvents++;
+        }
+        return matchingEvents;
+    }
 }
